@@ -35,16 +35,16 @@ def load_api_key() -> str:
     if key:
         return key
     raise EnvironmentError(
-        "❌ No GEMINI_API_KEY found.\n"
+        " No GEMINI_API_KEY found.\n"
         "Create a .env file with: GEMINI_API_KEY=your_key_here\n"
         "Or set it as an environment variable before running."
     )
 
 try:
     client = genai.Client(api_key=load_api_key())
-    print("✅ Client initialized.")
+    print(" Client initialized.")
 except Exception as e:
-    print(f"⚠️ Client init failed: {e}")
+    print(f" Client init failed: {e}")
 
 # ── TOOLS ──
 def calculate_temporal_decay(text_snippet: str) -> str:
@@ -109,7 +109,7 @@ Produce a complete audit report in this EXACT markdown format:
 
 ---
 
-## 🔍 Claim-by-Claim Analysis
+##  Claim-by-Claim Analysis
 
 | # | Evaluated Claim | Category | Age Risk | Days Old | Freshness Score | Live Ground Truth (2026) | Source | Contradiction | Impact Rating |
 |---|----------------|----------|----------|----------|-----------------|--------------------------|--------|---------------|---------------|
@@ -117,7 +117,7 @@ Produce a complete audit report in this EXACT markdown format:
 
 ---
 
-## 📊 Reliability Metrics
+## Reliability Metrics
 
 **Composite Reliability Score: XX/100**
 
@@ -130,13 +130,13 @@ Total                   : XX/100
 ```
 
 Risk breakdown:
-- 🔴 HIGH risk claims: N
-- 🟡 MODERATE risk claims: N
-- 🟢 LOW risk claims: N
+-  HIGH risk claims: N
+-  MODERATE risk claims: N
+-  LOW risk claims: N
 
 ---
 
-## ⚡ Explainability Trace
+##  Explainability Trace
 
 For each HIGH/MODERATE claim show:
 ```
@@ -145,7 +145,7 @@ Claim → Year Detected → Age Computed → Risk Threshold Exceeded → Verific
 
 ---
 
-## 📋 Executive Summary
+##  Executive Summary
 
 Write 3-5 sentences for a business leader summarising findings and recommended action.
 
@@ -189,14 +189,14 @@ def try_models(contents, system_instruction, tools=None, temperature=0.1):
         except Exception as e:
             err = str(e).lower()
             if any(c in err for c in ["429", "quota", "rate", "exhausted"]):
-                return "⏳ **Rate limit hit.** Wait 60 seconds and try again."
+                return "**Rate limit hit.** Wait 60 seconds and try again."
             last_error = e
             continue
-    return f"❌ **All models exhausted.**\n\n`{str(last_error)}`"
+    return f" **All models exhausted.**\n\n`{str(last_error)}`"
 
 def ui_audit_interface(input_report_text: str) -> str:
     if not input_report_text.strip():
-        return "⚠️ **Input empty.** Paste a report and click Execute."
+        return " **Input empty.** Paste a report and click Execute."
     raw_claims = try_models(f"Report to audit:\n{input_report_text}", claim_extractor_prompt, project_tools, 0.0)
     if raw_claims.startswith("⏳") or raw_claims.startswith("❌"):
         return raw_claims
@@ -285,10 +285,10 @@ header_html = """
 <div style="padding:44px 0 30px;border-bottom:1px solid rgba(180,20,20,0.35);margin-bottom:28px;position:relative;">
     <div style="position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent 0%,#991b1b 30%,#ef4444 50%,#991b1b 70%,transparent 100%);box-shadow:0 0 16px rgba(220,38,38,0.6);"></div>
     <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.32em;color:rgba(127,29,29,0.9);text-transform:uppercase;margin-bottom:16px;">
-        ██ CLASSIFIED · INTELSHIELD v3.0 · AGENTIC THREAT ANALYSIS SYSTEM
+        CLASSIFIED · INTELSHIELD v3.0 · AGENTIC THREAT ANALYSIS SYSTEM
     </div>
     <h1 style="font-size:36px;font-weight:800;margin:0 0 8px;letter-spacing:-0.035em;line-height:1.1;color:#f0f0f0;text-shadow:0 0 40px rgba(220,38,38,0.4),0 0 80px rgba(220,38,38,0.15);">
-        🛡️ INTEL<span style="color:#dc2626;text-shadow:0 0 30px rgba(220,38,38,0.8);">SHIELD</span>
+         INTEL<span style="color:#dc2626;text-shadow:0 0 30px rgba(220,38,38,0.8);">SHIELD</span>
     </h1>
     <p style="font-size:12.5px;color:rgba(100,100,100,0.9);margin:12px 0 0;line-height:1.6;max-width:640px;font-family:'JetBrains Mono',monospace;">
         // Real-time claim extraction · Temporal decay scoring · Live verification · Confidence scoring · Executive summary
@@ -326,7 +326,7 @@ with gr.Blocks(css=custom_css, title="IntelShield v3.0") as demo:
             gr.HTML("""<div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:0.22em;color:rgba(160,20,20,0.8);text-transform:uppercase;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid rgba(60,0,0,0.5);">▌ INTELLIGENCE PAYLOAD INPUT</div>""")
             input_box = gr.Textbox(label="", show_label=False, lines=14, placeholder="// Paste competitor report, market brief, or any business intelligence document...", value=sample_report.strip())
             gr.HTML('<div style="margin:14px 0;"></div>')
-            audit_btn = gr.Button("⚡  EXECUTE THREAT ANALYSIS", variant="primary", elem_classes="run-btn")
+            audit_btn = gr.Button("  EXECUTE THREAT ANALYSIS", variant="primary", elem_classes="run-btn")
             gr.HTML("""<div style="margin-top:14px;font-size:10px;color:rgba(40,0,0,0.9);font-family:'JetBrains Mono',monospace;line-height:1.9;border-top:1px solid rgba(50,0,0,0.5);padding-top:12px;">// STAGE A: EXTRACT → STAGE B: VERIFY → STAGE C: SCORE + REPORT</div>""")
             with gr.Accordion("▌ Pipeline Architecture", open=False):
                 gr.Markdown("""
