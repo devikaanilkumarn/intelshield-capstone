@@ -1,4 +1,4 @@
-# 🛡️ IntelShield v3.0
+#  IntelShield v3.0
 ### Agentic Temporal Intelligence Validation System
 
 > *Detects temporal data decay in business intelligence reports and cross-checks claims against live ground-truth sources — automatically.*
@@ -10,7 +10,7 @@
 
 ---
 
-## 🔥 What It Does
+##  What It Does
 
 Most business intelligence reports go stale within months. IntelShield is a **3-stage agentic pipeline** that:
 
@@ -21,7 +21,7 @@ Most business intelligence reports go stale within months. IntelShield is a **3-
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 Input Report
@@ -44,22 +44,22 @@ Input Report
 
 ---
 
-## ✨ Features
+##  Features
 
 | Feature | Description |
 |---------|-------------|
-| 🔍 Auto Claim Extraction | Detects pricing, funding, product, timeline claims automatically |
-| ⏱️ Temporal Decay Scoring | Computes freshness score (0–100) based on days elapsed |
-| 🌐 Live Verification | Cross-checks stale claims against ground-truth sources |
-| 📊 Composite Reliability Score | Weighted formula: freshness + source quality + verification |
-| ⚡ Explainability Trace | Full reasoning chain visible for every finding |
-| 📋 Executive Summary | Plain-English summary for business leaders |
-| 🎨 WebGL Shader UI | Mouse-reactive red glow blob background (GPU-rendered) |
-| 🔄 Model Fallback | Auto-cascades across 4 Gemini models on failure |
+|  Auto Claim Extraction | Detects pricing, funding, product, timeline claims automatically |
+|  Temporal Decay Scoring | Computes freshness score (0–100) based on days elapsed |
+|  Live Verification | Cross-checks stale claims against ground-truth sources |
+|  Composite Reliability Score | Weighted formula: freshness + source quality + verification |
+|  Explainability Trace | Full reasoning chain visible for every finding |
+|  Executive Summary | Plain-English summary for business leaders |
+|  WebGL Shader UI | Mouse-reactive red glow blob background (GPU-rendered) |
+|  Model Fallback | Auto-cascades across 4 Gemini models on failure |
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### 1. Clone
 ```bash
@@ -85,7 +85,7 @@ python app.py
 
 ---
 
-## 🔑 Getting a Gemini API Key
+##  Getting a Gemini API Key
 
 1. Go to [aistudio.google.com](https://aistudio.google.com)
 2. Click **Get API Key** → **Create API Key**
@@ -94,7 +94,7 @@ python app.py
 
 ---
 
-## 🧠 Tech Stack
+##  Tech Stack
 
 - **LLM:** Google Gemini 2.5 Flash (via `google-genai` SDK)
 - **UI:** Gradio 4.x with custom WebGL shader background
@@ -103,7 +103,7 @@ python app.py
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 intelshield-capstone/
@@ -118,13 +118,13 @@ intelshield-capstone/
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 *Add screenshots of the running UI here*
 
 ---
 
-## 📄 License
+##  License
 
 MIT License — free to use, modify, and distribute.
 
