@@ -119,8 +119,7 @@ intelshield-capstone/
 ---
 
 ##  Screenshots
-
-*Add screenshots of the running UI here*
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/088523f6-9967-43f4-9666-bc7ad575ec0c" />
 
 ---
 
